@@ -260,6 +260,7 @@ def train_GCLGNN(features, hyper_adj, dataloader, dataloader_val, dataloader_tes
             max_ap = ap_
             best_epoch = epoch
             cnt_wait = 0
+            os.makedirs(os.path.dirname(save_path), exist_ok=True)
             torch.save(model.state_dict(), save_path)
         else:
             cnt_wait += 1
